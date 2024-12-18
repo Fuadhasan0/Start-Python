@@ -1,15 +1,22 @@
-class number:
+class my_rang:
+       def __init__(seft, start, end):
+              seft.start = start
+              seft.end = end
+              seft.current = start
        def __iter__(seft):
-              seft.a = 1
               return seft
        def __next__(seft):
-              x = seft.a
-              seft.a += 1
-              return x
-       
-myclass = number()
-result = iter(myclass)
+              if seft.current <= seft.end:
+                     number = seft.current
+                     seft.current += 1
+                     return number
+              else:
+                     raise StopIteration
+              
+start_inp = int(input("Enter start number\n~ "))
+end_inp = int(input("Enter end number\n~ "))
 
-n = int(input("Who many number you print?\n~ "))
-for x in range(n):
-       print(next(result))
+result = my_rang(start_inp, end_inp)
+
+for x in result:
+       print(x)         
